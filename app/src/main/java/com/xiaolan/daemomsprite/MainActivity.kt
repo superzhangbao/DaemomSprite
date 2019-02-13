@@ -1,5 +1,6 @@
 package com.xiaolan.daemomsprite
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +12,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import com.tbruyelle.rxpermissions2.RxPermissions
 import com.xiaolan.daemomsprite.util.SilentInstall
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
@@ -72,6 +74,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         tv_apk.text = apkPath
         tv_version.text = BuildConfig.VERSION_NAME
+        val rxPermissions = RxPermissions(this)
+        rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE).subscribe()
     }
 
     fun onSilentInstall(view: View) {
@@ -127,7 +131,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
         return bool
     }
 }

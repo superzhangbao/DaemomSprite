@@ -4,4 +4,4 @@
     android:accessibilityFlags="flagDefault"
     android:canRetrieveWindowContent="true"
     android:description="@string/accessibility_service_description"
-    android:packageNames="com.android.packageinstaller" />
+    android:packageNames="com.samsung.android.packageinstaller,com.android.packageinstaller" />
