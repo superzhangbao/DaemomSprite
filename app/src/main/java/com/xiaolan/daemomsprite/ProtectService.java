@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.util.Log;
 
 public class ProtectService extends Service {
@@ -15,6 +14,7 @@ public class ProtectService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+        Log.e("ProtectService", "onBind");
         return mMyBinder;
     }
 
@@ -37,7 +37,7 @@ public class ProtectService extends Service {
 
     public class MyBinder extends ICat.Stub {
         @Override
-        public void getServiceName() throws RemoteException {
+        public void getServiceName() {
 
         }
     }

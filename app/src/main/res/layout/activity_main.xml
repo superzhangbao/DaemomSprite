@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/stop"
@@ -32,4 +33,43 @@
         tools:layout_editor_absoluteX="162dp"
         tools:layout_editor_absoluteY="330dp" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSilentInstall"
+        android:text="秒装" />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onForwardToAccessibility"
+        android:text="开启智能安装服务" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSmartInstall"
+        android:text="智能安装" />
+
+    <TextView
+        android:id="@+id/tv_apk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="apk:"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="版本号："
+        android:textSize="20sp"/>
 </LinearLayout>

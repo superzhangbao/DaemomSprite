@@ -8,7 +8,6 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.util.Log;
 
 import com.xiaolan.daemomsprite.util.DevicesUtil;
@@ -34,8 +33,8 @@ public class MainService extends Service {
                 intent.setAction(Intent.ACTION_MAIN);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
                 startActivity(intent);
-                startService(new Intent(getApplicationContext(), MainService.class));
-                startService(new Intent(getApplicationContext(), ProtectService.class));
+//                startService(new Intent(getApplicationContext(), MainService.class));
+//                startService(new Intent(getApplicationContext(), ProtectService.class));
             } else {
                 mHandler.postDelayed(this, 5000);
             }
@@ -51,6 +50,7 @@ public class MainService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e("MainService","onCreate");
         mMyBinder = new MyBinder();
         if (mMyConn == null) {
             mMyConn = new MyConn();
@@ -69,7 +69,7 @@ public class MainService extends Service {
     class MyBinder extends ICat.Stub {
 
         @Override
-        public void getServiceName() throws RemoteException {
+        public void getServiceName() {
 
         }
     }
@@ -81,7 +81,6 @@ public class MainService extends Service {
             Log.e("MainService", "onServiceConnected : " + componentName);
             mICat = ICat.Stub.asInterface(iBinder);
         }
-
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
@@ -113,5 +112,6 @@ public class MainService extends Service {
             mHandler = null;
         }
         super.onDestroy();
+        Log.e("MainService","onDestroy");
     }
 }
