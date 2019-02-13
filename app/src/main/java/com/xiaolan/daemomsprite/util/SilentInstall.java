@@ -44,13 +44,6 @@ public class SilentInstall {
             // 如果执行结果中包含Failure字样就认为是安装失败，否则就认为安装成功
             if (!msg.contains("Failure")) {
                 result = true;
-//                //安装成功后的操作
-//                //静态注册自启动广播
-//                Intent intent=new Intent();
-//                //与清单文件的receiver的anction对应
-//                intent.setAction("android.intent.action.PACKAGE_REPLACED");
-//                //发送广播
-//                App.getContext().getsendBroadcast(intent);
             }
         } catch (Exception e) {
             Log.e("TAG", e.getMessage(), e);

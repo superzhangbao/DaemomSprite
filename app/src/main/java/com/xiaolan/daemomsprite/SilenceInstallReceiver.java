@@ -19,6 +19,7 @@ public class SilenceInstallReceiver extends BroadcastReceiver {
         if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
             String packageName = intent.getDataString();
             Log.e(TAG,"安装了:" + packageName + "包名的程序");
+            startApp(context);
         }
         //接收卸载广播
         if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED")) {
